@@ -409,6 +409,7 @@ var _ = Describe("Observability:", func() {
 			Expect(err).NotTo(HaveOccurred())
 			for _, stsInfo := range (*sts).Items {
 				args := stsInfo.Spec.Template.Spec.Containers[0].Args
+				klog.Info("args is %s", args)
 				for _, arg := range args {
 					if arg == "--log.level=info" {
 						return true
@@ -424,6 +425,7 @@ var _ = Describe("Observability:", func() {
 			Expect(err).NotTo(HaveOccurred())
 			for _, deployInfo := range (*deploys).Items {
 				args := deployInfo.Spec.Template.Spec.Containers[0].Args
+				klog.Info("args is %s", args)
 				for _, arg := range args {
 					if arg == "--log.level=debug" {
 						return true
