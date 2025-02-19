@@ -351,7 +351,7 @@ var _ = Describe("Observability:", func() {
 	It("RHACM4K-43019 - Observability - Verify overwrite Thanos components CLI args in MCO CR - [P2][Sev2][Observability][Integration]@ocpInterop @non-ui-post-restore @non-ui-post-release @non-ui-pre-upgrade @non-ui-post-upgrade @post-upgrade @post-restore @e2e @post-release (config/g0)", func() {
 		By("Check the value is effect in the sts observability-thanos-rule")
 		Eventually(func() bool {
-			deploys, err := utils.GetDeploymentWithLabel(testOptions, true, THANOS_RULE_LABEL, MCO_NAMESPACE)
+			deploys, err := utils.GetStatefulSetWithLabel(testOptions, true, THANOS_RULE_LABEL, MCO_NAMESPACE)
 			Expect(err).NotTo(HaveOccurred())
 			for _, deployInfo := range (*deploys).Items {
 				args := deployInfo.Spec.Template.Spec.Containers[0].Args
@@ -420,7 +420,7 @@ var _ = Describe("Observability:", func() {
 
 		By("Check the value is effect in the observability-thanos-rule")
 		Eventually(func() bool {
-			deploys, err := utils.GetDeploymentWithLabel(testOptions, true, THANOS_RULE_LABEL, MCO_NAMESPACE)
+			deploys, err := utils.GetStatefulSetWithLabel(testOptions, true, THANOS_RULE_LABEL, MCO_NAMESPACE)
 			Expect(err).NotTo(HaveOccurred())
 			for _, deployInfo := range (*deploys).Items {
 				args := deployInfo.Spec.Template.Spec.Containers[0].Args
