@@ -187,3 +187,4 @@ kubectl delete ns open-cluster-management-observability
 ```
 
 Rebuild Image: Thu May 29 16:47:44 EDT 2025
+Generated auto rebuild. View log file created: [update-log-01-30-26](https://github.com/stolostron/multicluster-observability-operator/blob/main/.github/logs/update-log-01-30-26.md)
