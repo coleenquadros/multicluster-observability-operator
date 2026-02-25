@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.ice03-0.qe.red-chesterfield.com:6443
+  name: api-ice03-0-qe-red-chesterfield-com:6443
+contexts:
+- context:
+    cluster: api-ice03-0-qe-red-chesterfield-com:6443
+    namespace: default
+    user: kube:admin/api-ice03-0-qe-red-chesterfield-com:6443
+  name: default/api-ice03-0-qe-red-chesterfield-com:6443/kube:admin
+current-context: default/api-ice03-0-qe-red-chesterfield-com:6443/kube:admin
+kind: Config
+preferences: {}
+users:
+- name: kube:admin/api-ice03-0-qe-red-chesterfield-com:6443
+  user:
+    token: sha256~lMh37CIexNCWW1ahDVLjDYpIXLvw2UHzK3hdFB6igk8
