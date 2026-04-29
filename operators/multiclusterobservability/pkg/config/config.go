@@ -426,7 +426,7 @@ func GetDefaultTenantName() string {
 // GetObsAPIRouteHost is used to Route's host for Observatorium API. This doesn't take into consideration
 // the `advanced.customObservabilityHubURL` configuration.
 func GetObsAPIRouteHost(ctx context.Context, client client.Client, namespace string) (string, error) {
-	return GetRouteHost(client, ObsAPIGateway, namespace)
+	return GetRouteHost(ctx, client, ObsAPIGateway, namespace)
 }
 
 // GetObsAPIExternalURL is used to get the frontend URL that should be used to reach the Observatorium API instance.
@@ -449,7 +449,7 @@ func GetObsAPIExternalURL(ctx context.Context, client client.Client, obsapi stri
 		}
 		return obsURL, nil
 	}
-	routeHost, err := GetRouteHost(client, obsapi, namespace)
+	routeHost, err := GetRouteHost(ctx, client, obsapi, namespace)
 	if err != nil {
 		return nil, err
 	}
