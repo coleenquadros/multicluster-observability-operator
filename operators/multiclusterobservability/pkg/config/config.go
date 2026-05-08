@@ -168,6 +168,8 @@ const (
 	RBACQueryProxyImgName = "rbac-query-proxy"
 	RBACQueryProxyKey     = "rbac_query_proxy"
 
+	DefaultQueryTimeout = "300s"
+
 	ObservatoriumAPI               = "observatorium-api"
 	ThanosCompact                  = "thanos-compact"
 	ThanosQuery                    = "thanos-query"
@@ -755,7 +757,7 @@ func GetGrafanaQueryTimeout(mco *observabilityv1beta2.MultiClusterObservability)
 	if mco.Spec.AdvancedConfig != nil && mco.Spec.AdvancedConfig.QueryTimeout != "" {
 		return mco.Spec.AdvancedConfig.QueryTimeout
 	}
-	return "300s"
+	return DefaultQueryTimeout
 }
 
 func SetOperandNames(c client.Client) error {
