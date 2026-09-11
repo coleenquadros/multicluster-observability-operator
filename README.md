@@ -314,3 +314,5 @@ kubectl -n open-cluster-management-observability delete -k examples/minio
 ```bash
 kubectl delete ns open-cluster-management-observability
 ```
+
+Generated auto rebuild. View log file created: [update-log-09-11-26](https://github.com/stolostron/multicluster-observability-operator/blob/main/.github/logs/update-log-09-11-26.md)
